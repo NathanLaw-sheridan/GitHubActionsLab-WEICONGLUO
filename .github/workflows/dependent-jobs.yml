@@ -1,0 +1,31 @@
+name: Dependent Jobs
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show build message
+        run: echo "Building application..."
+      - name: Simulate build
+        run: sleep 3
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Show test message
+        run: echo "Running tests..."
+      - name: Simulate tests
+        run: sleep 2
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Show deploy message
+        run: echo "Deploying application..."
+      - name: Simulate deploy
+        run: sleep 2
