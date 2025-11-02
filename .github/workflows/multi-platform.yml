@@ -19,12 +19,18 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Show OS info
         run: ver
+        shell: cmd
+
       - name: Create file
         run: echo Hello from Windows > note.txt
+        shell: cmd
+
       - name: Show file
         run: type note.txt
+        shell: cmd
 
   macos-job:
     runs-on: macos-latest
