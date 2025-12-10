@@ -1,3 +1,14 @@
-git add .
-git commit -m "Add actions"
-git push
+name: DateTime Workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  display:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show date
+        run: date
+      - name: Show custom message
+        run: echo Workflow run by Saber
